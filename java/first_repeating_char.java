@@ -1,4 +1,8 @@
-//print first repating character in a string
+/*
+first repating char in given string
+xyzyx
+x
+*/
 import java.io.*;
 import java.util.*;
 import java.math.*;
@@ -8,11 +12,14 @@ public class MyClass {
        String str =  in.nextLine();
        int[] count = new int[256];
        for(int i=0;i<str.length();i++){
-           if(count[str.charAt(i)] > 0){
+           count[str.charAt(i)]++;
+       }
+       for(int i=0;i<str.length();i++){
+           if(count[str.charAt(i)]>1){
                System.out.println(str.charAt(i));
                break;
            }
-           count[str.charAt(i)]++;
+                
        }
 }
 
