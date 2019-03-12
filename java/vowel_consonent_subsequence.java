@@ -1,3 +1,4 @@
+//program to print all Subsequences of String which Start with Vowel and End with Consonant
 import java.util.*;
 import java.lang.*;
 import java.io.*;
