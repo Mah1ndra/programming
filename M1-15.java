@@ -182,4 +182,78 @@ public class FileCopyUsingFileChannel {
         sourceFileChannel.transferTo(0, size, destinationFileChannel);
     }
 }
+//------------------------------------------------------------------------------------------------------------
+
+//2[s2] si ci
+import java.util.*;
+import java.lang.*;
+public class SICI {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        double prin, time, rate, simple, compound;
+        prin = in.nextDouble();
+        time = in.nextDouble();
+        rate = in.nextDouble();
+        simple = (prin + time + rate)/100;
+        compound = (prin * Math.pow(1.0+rate/100.0,time)-prin);
+        System.out.println("Simple Intrest: "+simple);
+        System.out.println("Compound Intrest: "+compound);
+        in.close();
+    }
+}
+
+//2[s2] si ci
+import java.util.*;
+import java.lang.*;
+public class SICI {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        double prin, time, rate, simple, compound;
+        prin = in.nextDouble();
+        time = in.nextDouble();
+        rate = in.nextDouble();
+        simple = (prin + time + rate)/100;
+        compound = (prin * Math.pow(1.0+rate/100.0,time)-prin);
+        System.out.println("Simple Intrest: "+simple);
+        System.out.println("Compound Intrest: "+compound);
+        in.close();
+    }
+}
+
+////5[s5] even or odd
+import java.util.*;
+import java.lang.*;
+public class Even {
+    public static boolean even(int n){
+        return n%2==0 ? true : false;
+    }
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        if(even(n)){
+            System.out.println("Even");
+        }else{
+            System.out.println("Odd");
+        }
+        in.close();
+    }
+}
+//3[s3] swapping
+import java.util.*;
+import java.lang.*;
+public class Swap {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int x = in.nextInt();
+        int y = in.nextInt();
+        System.out.println("Before swap: ");
+        System.out.println("x="+x+" "+"y="+y);
+        x = x + y;
+        y = x - y;
+        x = x - y;
+        System.out.println("After swap: ");
+        System.out.println("x="+x+" "+"y="+y);
+        in.close();
+    }
+}
 
