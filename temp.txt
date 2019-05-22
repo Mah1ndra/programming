@@ -1,3 +1,23 @@
+//15[m2] pascal triangle
+import java.util.*;
+public class PascalTriangle {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int n  = in.nextInt(),number=1;
+        for(int i=0;i<n;i++){
+            for(int k=n;k>i;k--){
+                    System.out.print(" ");
+            }
+            number = 1;
+            for(int j=0;j<=i;j++){
+                System.out.print(number+" ");
+                number = number * (i-j)/(j+1);
+            }
+            System.out.println();
+        }
+    }
+}
+
 //31[M3] recursive fibonacci
 import java.util.*;
 
@@ -164,3 +184,450 @@ public class FileCopyUsingFileChannel {
 }
 
 
+//16[m1] matrix multiplication
+import java.util.*;
+public class Multiplication {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int r1 = in.nextInt(), c1 = in.nextInt();
+        int[][] first = new int[r1][c1];
+        for(int i = 0;i<r1;i++){
+            for(int j=0;j<c1;j++){
+                first[i][j] = in.nextInt();
+            }
+        }
+        int r2 = in.nextInt(), c2 = in.nextInt();
+        int[][] second = new int[r2][c2];
+        
+        for(int i = 0;i<r2;i++){
+            for(int j=0;j<c2;j++){
+                second[i][j] = in.nextInt();
+            }
+        }
+
+        // Mutliplying Two matrices
+        int[][] product = multiplyMatrices(first, second, r1, c1, c2);
+
+        // Displaying the result
+        displayProduct(product);
+    }
+
+    public static int[][] multiplyMatrices(int[][] firstMatrix, int[][] secondMatrix, int r1, int c1, int c2) {
+        int[][] product = new int[r1][c2];
+        for(int i = 0; i < r1; i++) {
+            for (int j = 0; j < c2; j++) {
+                for (int k = 0; k < c1; k++) {
+                    product[i][j] += firstMatrix[i][k] * secondMatrix[k][j];
+                }
+            }
+        }
+
+        return product;
+    }
+
+    public static void displayProduct(int[][] product) {
+        System.out.println("Product of two matrices is: ");
+        for(int[] row : product) {
+            for (int column : row) {
+                System.out.print(column + "  ");
+            }
+            System.out.println();
+        }
+    }
+}
+//------------------------------------------------------------------------------------------------------------
+
+
+//2[s2] si ci
+import java.util.*;
+import java.lang.*;
+public class SICI {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        double prin, time, rate, simple, compound;
+        prin = in.nextDouble();
+        time = in.nextDouble();
+        rate = in.nextDouble();
+        simple = (prin + time + rate)/100;
+        compound = (prin * Math.pow(1.0+rate/100.0,time)-prin);
+        System.out.println("Simple Intrest: "+simple);
+        System.out.println("Compound Intrest: "+compound);
+        in.close();
+    }
+}
+
+////5[s5] even or odd
+import java.util.*;
+import java.lang.*;
+public class Even {
+    public static boolean even(int n){
+        return n%2==0 ? true : false;
+    }
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        if(even(n)){
+            System.out.println("Even");
+        }else{
+            System.out.println("Odd");
+        }
+        in.close();
+    }
+}
+//3[s3] swapping
+import java.util.*;
+import java.lang.*;
+public class Swap {
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int x = in.nextInt();
+        int y = in.nextInt();
+        System.out.println("Before swap: ");
+        System.out.println("x="+x+" "+"y="+y);
+        x = x + y;
+        y = x - y;
+        x = x - y;
+        System.out.println("After swap: ");
+        System.out.println("x="+x+" "+"y="+y);
+        in.close();
+    }
+}
+//7[s7]
+import java.util.*;
+public class MyClass {
+    public static int greatest(int x,int y,int z){
+        return ((x>y)?(x>z?x:z):(y>z?y:z));
+    }
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int x = in.nextInt();
+        int y = in.nextInt();
+        int z = in.nextInt();
+
+        System.out.println("Greatest: " + greatest(x,y,z));
+    }
+}
+
+//13[s13]
+import java.util.*;
+public class MyClass {
+    public static void reverse(int[] array){
+        for(int i=array.length-1;i>=0;i--){
+            System.out.print(array[i]+" ");
+        }
+    }
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int[] array = new int[n];
+        for(int i=0;i<n;i++){
+            array[i] = in.nextInt();
+        }
+        
+        System.out.println("Reversed array:");
+        reverse(array);
+    }
+}
+//19[s17]
+import java.util.*;
+public class MyClass {
+    
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        String str = in.next();
+        StringBuilder sbuild = new StringBuilder(str);
+        System.out.println("Reversed String: "+sbuild.reverse());
+        
+    }
+}
+//8[s8]
+import java.util.*;
+public class MyClass {
+    static boolean isPrime(int n) 
+    { 
+        if (n <= 1) 
+            return false; 
+        if (n <= 3) 
+            return true; 
+      
+        if (n % 2 == 0 || n % 3 == 0) 
+            return false; 
+  
+        for (int i = 5; i * i <= n; i = i + 6) 
+            if (n % i == 0 || n % (i + 2) == 0) 
+                return false; 
+  
+        return true; 
+    } 
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        
+        if(isPrime(n)){
+            System.out.println(n+" is a Prime number");
+        }else{
+            System.out.println(n+" is a composite number");
+        }
+        
+    }
+}
+//14[s14]
+import java.util.*;
+
+public class MyClass {
+    public static void merge(int[] array1,int[] array2){
+        int n = array1.length + array2.length;
+        
+        int[] res = new int[n];
+        int x = 0,y=0,k=0;
+        while(x < array1.length && y< array2.length){
+            res[k++] = array1[x++];
+            res[k++] = array2[y++];
+        }
+        while(x<array1.length){
+            res[k++] = array1[x++];
+        }
+        while(y<array2.length){
+            res[k++] = array2[y++];
+        }
+        for(int i=0;i<n;i++){
+            System.out.print(res[i]+" ");
+        }
+    }
+    public static void main(String args[]) {
+        Scanner in = new Scanner(System.in);
+        int x = in.nextInt();
+        int[] array1 = new int[x];
+        for(int i=0;i<x;i++){
+            array1[i] = in.nextInt();
+        }
+        int y = in.nextInt();
+        int[] array2 = new int[y];
+        for(int i=0;i<y;i++){
+            array2[i] = in.nextInt();
+        }
+        System.out.println("Merged Array: ");
+        merge(array1,array2);
+    }
+}
+
+----------------------------------------------------------------------------------------------------------------------
+//critical
+//11[c7] multithreading
+//a. using wati(),notify() methods
+
+import java.util.*;
+
+public class ProducerConsumer {
+    public static void main(String args[]) {
+        List<Integer> sharedList = new ArrayList<Integer>();
+        new Thread(new Producer(sharedList)).start();
+        new Thread(new Consumer(sharedList)).start();
+    }
+}
+
+class Producer implements Runnable{
+    List<Integer> sharedList = null;
+    final int MAX_SIZE = 5;
+    private int i = 0;
+    public Producer(List<Integer> sharedList){
+        super();
+        this.sharedList = sharedList;
+    }
+    
+    @Override
+    public void run(){
+        while(true){
+            try{
+                produce(i++);
+            }catch(InterruptedException exception){
+                
+            }
+        }
+    }
+    public void produce(int i) throws InterruptedException{
+        synchronized(sharedList){
+            if(sharedList.size() == MAX_SIZE){
+                System.out.println("SharedList is full... waiting for the consumer to consume");
+                sharedList.wait();
+            }
+        }
+        synchronized(sharedList){
+            System.out.println("Produced element: "+i);
+            sharedList.add(i);
+            Thread.sleep(100);
+            sharedList.notify();
+        }
+    }
+}
+class Consumer implements Runnable{
+    List<Integer> sharedList = null;
+    
+    public Consumer(List<Integer> sharedList){
+        super();
+        this.sharedList = sharedList;
+    }
+    
+    @Override
+    public void run(){
+        while(true){
+            try{
+                consume();
+            }catch(InterruptedException exception){
+                
+            }
+        }
+    }
+    public void consume() throws InterruptedException{
+        synchronized(sharedList){
+            if(sharedList.isEmpty()){
+                System.out.println("SharedList is full... waiting for the consumer to consume");
+                sharedList.wait();
+            }
+        }
+        synchronized(sharedList){
+            Thread.sleep(1000);
+            System.out.println("Consumed element: "+sharedList.remove(0));
+            sharedList.notify();
+        }
+    }
+}
+
+//b. Using BlockingQueue
+
+import java.util.concurrent.*;
+import java.util.*;
+
+public class ProducerConsumer {
+    public static void main(String args[]) {
+        BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<Integer>(10);
+        new Thread(new Producer(blockingQueue)).start();
+        new Thread(new Consumer(blockingQueue)).start();
+    }
+}
+
+class Producer implements Runnable{
+    BlockingQueue<Integer> blockingQueue = null;
+    private int i = 0;
+    
+    public Producer(BlockingQueue<Integer> blockingQueue){
+        super();
+        this.blockingQueue = blockingQueue;
+    }
+    
+    @Override
+    public void run(){
+        while(true){
+            try{
+                produce(i++);
+            }catch(InterruptedException exception){
+                
+            }
+        }
+    }
+    public void produce(int i) throws InterruptedException{
+        System.out.println("Produced element: "+i);
+        blockingQueue.put(i);
+        Thread.sleep(100);
+    }
+}
+class Consumer implements Runnable{
+    BlockingQueue<Integer> blockingQueue = null;
+    
+    
+    public Consumer(BlockingQueue<Integer> blockingQueue){
+        super();
+        this.blockingQueue = blockingQueue;
+    }
+    
+    @Override
+    public void run(){
+        while(true){
+            try{
+                consume();
+            }catch(InterruptedException exception){
+                
+            }
+        }
+    }
+    public void consume() throws InterruptedException{
+        System.out.println("Consumed element: "+blockingQueue.take());
+        Thread.sleep(100);
+    }
+}
+
+
+//12[c8]
+import java.util.concurrent.*;
+
+public class MyClass {
+    public static void main(String args[]) {
+        BlockingQueue<Integer> blockingQueue = new ArrayBlockingQueue<Integer>(10);
+        new Thread(new Insert(blockingQueue)).start();
+        new Thread(new Retrive(blockingQueue)).start();
+    }
+}
+class Insert implements Runnable{
+    BlockingQueue<Integer> blockingQueue = null;
+    private int i = 0;
+    final int MAX_SIZE = 10;
+    public Insert(BlockingQueue<Integer> blockingQueue){
+        super();
+        this.blockingQueue = blockingQueue;
+    }
+    
+    @Override
+    public void run(){
+        while(true){
+            try{
+                insert(i++);
+            }catch(InterruptedException e){
+                
+            }
+        }
+    }
+    public void insert(int i) throws InterruptedException{
+        synchronized(blockingQueue){
+            System.out.println("Inserted element: "+i);
+            blockingQueue.put(i);
+            Thread.sleep(100);
+        }
+        synchronized(blockingQueue){
+            if(blockingQueue.size()==MAX_SIZE){
+                System.out.println("Waiting for Memory availability...");
+                blockingQueue.wait();
+            }
+        }
+    }
+}
+class Retrive implements Runnable{
+    BlockingQueue<Integer> blockingQueue = null;
+    
+    public Retrive(BlockingQueue<Integer> blockingQueue){
+        super();
+        this.blockingQueue = blockingQueue;
+    }
+    
+    @Override
+    public void run(){
+        while(true){
+            try{
+                retrive();
+            }catch(InterruptedException e){
+                
+            }
+        }
+    }
+    public void retrive() throws InterruptedException{
+       synchronized(blockingQueue){
+            if(blockingQueue.isEmpty()){
+                System.out.println("Waiting for the value");
+                blockingQueue.wait();
+            }
+        }
+        synchronized(blockingQueue){
+            Thread.sleep(1000);
+            System.out.println("Retrived element: "+blockingQueue.take());
+        }
+    }
+}
